@@ -1,0 +1,20 @@
+{
+    "name": "szymon/alertcoingecko",
+    "autoload": {
+        "psr-4": {
+            "alertCoingecko\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sgolinski",
+            "email": "simon.golinski@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/panther": "^2.0",
+        "symfony/css-selector": "^6.0",
+        "alek13/slack": "^2.2",
+        "php-webdriver/webdriver": "^1.12"
+    }
+}
