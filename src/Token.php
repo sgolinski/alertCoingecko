@@ -23,12 +23,14 @@ class Token
         $this->bscLink = $bscLink;
     }
 
-    public function __construct($name, $price, $percent, $link)
+    public function __construct($name, $percent, $address, $link)
     {
         $this->name = $name;
-        $this->price = $price;
         $this->percent = (float)$percent;
-        $this->coingeckoLink = 'https://www.coingecko.com' . $link;
+        $this->coingeckoLink = trim($link);
+        $this->address = $address;
+        $this->setPoocoinLink('https://poocoin.app/tokens/' . $address);
+        $this->setBscLink('https://bscscan.com/token/' . $address);
     }
 
     public function getName(): string
@@ -85,15 +87,16 @@ class Token
 
     public function getDescription(): ?string
     {
-        if ($this->getPoocoinLink() != null) {
-            return "Name: " . $this->getName() . PHP_EOL .
-                "Drop percent: " . $this->getPercent() . "%" . PHP_EOL .
-                "Coingecko: " . $this->getCoingeckoLink() . PHP_EOL .
-                "Poocoin:  " . $this->getPoocoinLink() . PHP_EOL;
-        } else {
-            return "Name: " . $this->getName() . PHP_EOL .
-                "Drop percent: " . $this->getPercent() . "%" . PHP_EOL .
-                "Coingecko: " . $this->getCoingeckoLink() . PHP_EOL;
-        }
+
+        return "Name: " . $this->getName() . PHP_EOL .
+            "Drop percent: " . $this->getPercent() . "%" . PHP_EOL .
+            "Coingecko: " . $this->getCoingeckoLink() . PHP_EOL .
+            "Poocoin:  " . $this->getPoocoinLink() . PHP_EOL;
+
+    }
+
+    public function setPercent(float $percent)
+    {
+        $this->percent = $percent;
     }
 }

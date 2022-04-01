@@ -263,6 +263,19 @@ $list = [
     "https://www.coingecko.com/en/coins/value-finance                           ",
     "https://www.coingecko.com/en/coins/moonfarm-finance                        ",
     "https://www.coingecko.com/en/coins/obtoken                                 ",
-
+    "https://www.coingecko.com/de/munze/cryptoids-game-coin ",
+    "https://www.coingecko.com/de/munze/civic-power              ",
+    "https://www.coingecko.com/de/munze/etna-network             ",
+    "https://www.coingecko.com/de/munze/cryptoids-game-coin      ",
+    "https://www.coingecko.com/de/munze/scaryswap                ",
+    "https://www.coingecko.com/de/munze/civic-power              ",
+    "https://www.coingecko.com/de/munze/crypto-crash-gaming      ",
+    "https://www.coingecko.com/de/munze/nft-starter              ",
+    "https://www.coingecko.com/de/munze/crypto-crash-gaming      ",
+    "https://www.coingecko.com/de/munze/meta-spatial             ",
+    "https://www.coingecko.com/de/munze/scaryswap                ",
+    "https://www.coingecko.com/de/munze/updefi                   ",
+    "https://www.coingecko.com/de/munze/cryptoids-game-coin      ",
+    "https://www.coingecko.com/de/munze/etna-network             ",
 
 ];
