@@ -33,9 +33,8 @@ foreach ($list as $coin) {
 echo $coin->getCoingeckoLink().PHP_EOL;
     try {
         $percent = $crawler->checkPercent($coin->getCoingeckoLink());
-        echo $percent. PHP_EOL;
-       $coin->setPercent($percent);
-        if ($coin->percent > -30.00) {
+       $coin->setPercent((float)$percent);
+        if ($coin->percent < -30.00) {
             $message = new Message();
             $message->setText($coin->getDescription());
             $slack->sendMessage($message);
