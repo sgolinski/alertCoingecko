@@ -15,7 +15,6 @@ ARG GECKODRIVER_VERSION=0.30.0
 RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz; \
     tar -zxf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz -C /usr/bin; \
     rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
- \
 
 ADD /composer.json composer.json
 ADD /composer.lock composer.lock
