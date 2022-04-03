@@ -9,31 +9,30 @@ use Maknz\Slack\Message;
 require_once __DIR__ . '/vendor/autoload.php';
 
 header("Content-Type: text/plain");
-$list = unserialize(file_get_contents('list.txt'));
-
+$list = file_get_contents('list.txt');
+$list = explode("\n", $list);
 
 //$arr = array_unique($list);
 //$arr = file_put_contents('list.txt', serialize($arr));
 //die;
 
-$slack = new SlackClient('https://hooks.slack.com/services/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');;
-
 $crawler = new Crawler();
 
-$lastRoundCoins = unserialize(file_get_contents('last_rounded_coins.txt'));
+//$lastRoundCoins = unserialize(file_get_contents('last_rounded_coins.txt'));
 
-if (empty($lastRoundCoins)) {
-    $lastRoundCoins = [];
-}
+//if (empty($lastRoundCoins)) {
+//    $lastRoundCoins = [];
+//}
 
 //$alertCoins = Crawler::removeDuplicates($crawler->returnArray, $lastRoundCoins);
 
-shuffle($list);
+//shuffle($list);
 $newList = [];
 foreach ($list as $coin) {
 
     try {
-        $data = $crawler->assignDetailInformationToCoin($coin);
+
+        $data = $crawler->assignDetailInformationToCoin(trim($coin));
         $token = new Token($data[0], $data[2], $data[1], trim($coin));
         $newList[] = $token;
         echo $token->getName() . PHP_EOL;

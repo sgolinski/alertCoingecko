@@ -2,7 +2,6 @@
 
 namespace alertCoingecko;
 
-
 use Symfony\Component\Panther\Client as PantherClient;
 
 class Crawler
@@ -11,34 +10,30 @@ class Crawler
 
     public array $returnArray;
 
-
     public function __construct()
     {
-        $this->client = PantherClient::createChromeClient();
+        $this->client = PantherClientSingleton::getChromeClient();
         $this->returnArray = [];
     }
 
-
     public function assignDetailInformationToCoin($link)
     {
-
         $this->client->get(trim($link));
         $this->client->refreshCrawler();
-
 
         $name = $this->client->getCrawler()
             ->filter('div.tw-flex.tw-text-gray-900')
             ->getText();
-
-
+        echo $name . PHP_EOL;
         $address = $this->client->getCrawler()
             ->filter('div.coin-link-row.tw-mb-0 > div > div > img ')
             ->getAttribute('data-address');
-
+        echo $address . PHP_EOL;
         $percent = $this->client->getCrawler()
             ->filter('span.live-percent-change.tw-ml-2.tw-text-xl')
             ->getText();
 
+        echo $percent . PHP_EOL;
         return [$name, $address, $percent];
     }
 
@@ -47,10 +42,9 @@ class Crawler
         $this->client->get(trim($link));
         $this->client->refreshCrawler();
 
-        return  $this->client->getCrawler()
+        return $this->client->getCrawler()
             ->filter('div.tw-flex-1.py-2.border.px-0.tw-rounded-md.tw-rounded-t-none.tw-rounded-r-none')
             ->getText();
-
     }
 
     public

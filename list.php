@@ -277,5 +277,4 @@ $list = [
     "https://www.coingecko.com/de/munze/updefi                   ",
     "https://www.coingecko.com/de/munze/cryptoids-game-coin      ",
     "https://www.coingecko.com/de/munze/etna-network             ",
-
 ];
