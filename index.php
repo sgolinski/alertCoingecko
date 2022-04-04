@@ -29,7 +29,6 @@ if (empty($lastRoundCoins)) {
 
 foreach ($serializedList as $coin) {
     assert($coin instanceof Token);
-    echo $coin->getName() . PHP_EOL;
     if (!array_search($coin->getName(), $lastRoundCoins)) {
         try {
             $percent = $crawler->checkPercent($coin->getCoingeckoLink());
