@@ -33,22 +33,17 @@ foreach ($list as $coin) {
     try {
 
         $data = $crawler->assignDetailInformationToCoin(trim($coin));
-        $token = new Token($data[0], $data[2], $data[1], trim($coin));
-        $newList[] = $token;
-        echo $token->getName() . PHP_EOL;
-//        if ($token->percent > 10.00) {
-//            $message = new Message();
-//            $message->setText($token->getDescription());
-//            $slack->sendMessage($message);
-//            $crawler->returnArray[] = $token;
-//        }
+        if ($data[0] != null && $data[2] != null && $data[1] != null) {
+            $token = new Token($data[0], $data[2], $data[1], trim($coin));
+            $newList[] = $token->getCoingeckoLink().PHP_EOL;
+            echo $token->getName() . PHP_EOL;
+        }
+
     } catch (Exception $e) {
-        $crawler->getClient()->quit();
         continue;
     }
 }
 $crawler->getClient()->quit();
 
-//file_put_contents('last_rounded_coins.txt', serialize($crawler->returnArray));
 file_put_contents('newList.txt', serialize($newList));
 

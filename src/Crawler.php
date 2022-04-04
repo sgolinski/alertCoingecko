@@ -24,16 +24,15 @@ class Crawler
         $name = $this->client->getCrawler()
             ->filter('div.tw-flex.tw-text-gray-900')
             ->getText();
-        echo $name . PHP_EOL;
+
         $address = $this->client->getCrawler()
             ->filter('div.coin-link-row.tw-mb-0 > div > div > img ')
             ->getAttribute('data-address');
-        echo $address . PHP_EOL;
+
         $percent = $this->client->getCrawler()
             ->filter('span.live-percent-change.tw-ml-2.tw-text-xl')
             ->getText();
 
-        echo $percent . PHP_EOL;
         return [$name, $address, $percent];
     }
 
