@@ -35,7 +35,7 @@ foreach ($list as $coin) {
         $data = $crawler->assignDetailInformationToCoin(trim($coin));
         if ($data[0] != null && $data[2] != null && $data[1] != null) {
             $token = new Token($data[0], $data[2], $data[1], trim($coin));
-            $newList[] = $token->getCoingeckoLink().PHP_EOL;
+            $newList[] = $token;
             echo $token->getName() . PHP_EOL;
         }
 
