@@ -33,7 +33,7 @@ foreach ($serializedList as $coin) {
         try {
             $percent = $crawler->checkPercent($coin->getCoingeckoLink());
             $coin->setPercent((float)$percent);
-            if ($coin->percent < -10.00) {
+            if ($coin->percent < -30.00) {
                 $message = new Message();
                 $message->setText($coin->getDescription());
                 $slack->sendMessage($message);
