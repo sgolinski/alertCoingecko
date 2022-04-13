@@ -1,7 +1,7 @@
 version: "3.7"
 
 networks:
-  alertcoingeckonet:
+  alertcoingeckonet_1:
     external: true
 
 services:
@@ -13,4 +13,4 @@ services:
       - ../:/mnt/app
     restart: always
     networks:
-      - alertcoingeckonet
+      - alertcoingeckonet_1
