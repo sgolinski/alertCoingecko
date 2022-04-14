@@ -45,5 +45,5 @@ foreach ($list as $coin) {
 }
 $crawler->getClient()->quit();
 
-file_put_contents('newList_1503_.txt', serialize($newList));
+file_put_contents('newList_802-1202.txt', serialize($newList));
 
