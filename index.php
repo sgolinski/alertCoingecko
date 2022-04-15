@@ -8,7 +8,7 @@ use Maknz\Slack\Message;
 require_once __DIR__ . '/vendor/autoload.php';
 header("Content-Type: text/plain");
 
-$serializedList = require 'serializedList450_900.php';
+$serializedList = require 'serializedList900_1350.php';
 $serializedList = unserialize($serializedList);
 
 $slack = new SlackClient('https://hooks.slack.com/services/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');;
