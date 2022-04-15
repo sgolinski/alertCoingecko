@@ -33,7 +33,11 @@ class Crawler
             ->filter('span.live-percent-change.tw-ml-2.tw-text-xl')
             ->getText();
 
-        return [$name, $address, $percent];
+        $mainet = $this->client->getCrawler()
+            ->filter('span.text-muted.mr-2 > span')
+            ->getAttribute('data-content');
+
+        return [$name, $address, $percent, $mainet];
     }
 
     public function checkPercent($link)

@@ -31,12 +31,13 @@ $newList = [];
 foreach ($list as $coin) {
 
     try {
-
         $data = $crawler->assignDetailInformationToCoin(trim($coin));
         if ($data[0] != null && $data[2] != null && $data[1] != null) {
             $token = new Token($data[0], $data[2], $data[1], trim($coin));
-            $newList[] = $token;
-//            echo $token->getName() . PHP_EOL;
+            if ($data[3] == 'BSC') {
+                $newList[] = $token;
+                echo $token->getName() . PHP_EOL;
+            }
         }
 
     } catch (Exception $e) {
@@ -45,5 +46,5 @@ foreach ($list as $coin) {
 }
 $crawler->getClient()->quit();
 
-file_put_contents('newList_1503_.txt', serialize($newList));
+file_put_contents('newList.txt', serialize($newList));
 
