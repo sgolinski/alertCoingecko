@@ -47,22 +47,7 @@ class Token
     {
         return $this->percent;
     }
-
-    public function getMainet(): string
-    {
-        return $this->mainet;
-    }
-
-    public function setMainet(string $mainet): void
-    {
-        $this->mainet = $mainet;
-    }
-
-    public function getAddress(): string
-    {
-        return $this->address;
-    }
-
+    
     public function setAddress(string $address): void
     {
         $this->address = $address;
